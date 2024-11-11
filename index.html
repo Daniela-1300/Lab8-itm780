@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .controls-section {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+        .caption {
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Accessible Website</h1>
+
+    <div class="controls-section">
+        <h2>Accessibility Controls</h2>
+        <button onclick="adjustTextSize()">Increase Text Size</button>
+        <button onclick="toggleColorScheme()">Toggle Color Scheme</button>
+    </div>
+
+    <div class="audio-section">
+        <h2>Video Player</h2>
+        <video controls width="600">
+            <source src="RPReplay_Final1731283081.MP4" type="video/mp4">
+            <track src="captions.vtt" kind="captions" srclang="en" label="English" default>
+            Your browser does not support the video tag.
+          </video>
+        <p class="citation">AWDubs Official. (2023, October 21). Daily Lives of High School Boys [English Dub] Episode 2 - Second Preview [Video]. YouTube. https://www.youtube.com/watch?v=8sf7rQwKy0I</p>
+    </div>
+
+    <div class="image-container">
+        <img id="image1" src="IMG_1069.JPG" alt="A small dog sitting down looking towards the screen" width="500" height="100">
+        <p class="caption">Photo taken on October 10, 2024 at North York.</p>
+        <button onclick="showAltText('image1')">Show Alt-Text for Image 1</button>
+    </div>
+
+    <div class="image-container">
+        <img id="image2" src="IMG_1070.jpg" alt="A scenarie of a cloudy sky with trees at the bottom of the image"  width="500" height="100">
+        <p class="caption">Photo taken on October 8, 2024 at Toronto.</p>
+        <button onclick="showAltText('image2')">Show Alt-Text for Image 2</button>
+    </div>
+
+    <div class="image-container">
+        <img id="image3" src="IMG_1072.jpg" alt="A butterfly sitting on a pink flower"  width="500" height="100">
+        <p class="caption">Photo taken on June 7, 2024 at Cancun Mexico.</p>
+        <button onclick="showAltText('image3')">Show Alt-Text for Image 3</button>
+    </div>
+
+    <script>
+        let textSizeIncreased = false;
+        let darkMode = false;
+        
+        function adjustTextSize() {
+            const body = document.body;
+            if (!textSizeIncreased) {
+                body.style.fontSize = '1.2em';
+                textSizeIncreased = true;
+            } else {
+                body.style.fontSize = '1em';
+                textSizeIncreased = false;
+            }
+        }
+
+        function toggleColorScheme() {
+            const body = document.body;
+            if (!darkMode) {
+                body.style.backgroundColor = '#333';
+                body.style.color = '#fff';
+                darkMode = true;
+            } else {
+                body.style.backgroundColor = '#fff';
+                body.style.color = '#000';
+                darkMode = false;
+            }
+        }
+
+        function showAltText(imageId) {
+            const image = document.getElementById(imageId);
+            alert(image.alt);
+        }
+    </script>
+</body>
+</html>
